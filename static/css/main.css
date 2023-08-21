@@ -1,0 +1,65 @@
+div.content {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+
+}
+
+div.title {
+    background-color: cornflowerblue;
+    border: 2px solid yellow;
+    border-radius: 50px;
+    color: yellow;
+    margin-bottom: 15px;
+}
+
+div.api-error {
+    border: 2px solid red;
+    color: red;
+    margin-bottom: 20px;
+}
+
+div.exist-error {
+    border: 2px solid green;
+    color: green;
+    margin-bottom: 20px;
+}
+
+table.city-weather {
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+div.weather-display {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+div.weathers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+form {
+    display: inline;
+}
+
+p#empty {
+    margin-top: 20px;
+}
+
+div.form-container {
+    color: yellow;
+    margin-bottom: 10px;
+}
+

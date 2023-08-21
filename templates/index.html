@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>WeatherTracker</title>
+</head>
+<body>
+    <div class="content">
+        <div class="title">
+            <h1>Weather Tracker</h1>
+
+            <div class="form-container">
+                <form action="/" method="post">
+                    <label for="city"><b>Enter city name:</b></label>
+                    <input type="text" name="city" id="city">
+                    <input type="submit" value="Track">
+                </form>
+                <a href="/updateAll"><button>Update all</button></a>
+                <a href="/deleteAll"><button>Delete all</button></a>
+    
+            </div>
+        </div>
+
+        {% if apiError == True %}
+            <div class="api-error">
+                <p> ! Error occured during server call !</p>
+                <p>Check the spelling of the city name or try again later</p>
+            </div>
+        {% endif %}
+
+        {% if existError == True %}
+            <div class="exist-error">
+                <p>! You are already tracking weather in {{ existingCity }} !</p>
+                <p>! Click update button to get current weather in this city !</p>
+            </div>
+        {% endif %}
+
+        {% if weathers|length < 1 %}
+        <p id="empty">Database is empty</p>
+        {% else %}
+            <div class="weathers">
+            {% for city in weathers %}
+                <div class="weather-display">
+                    <table class="city-weather" style="text-align: left; padding: 7px; background-color: cornflowerblue; color: yellow;">
+                    <th style="text-align: center;">{{ city.name.upper() }} ({{city.country}})</th>
+                    <th>{{ city.date.strftime('%d/%m/%Y %H:%M') }}</th>
+
+                    <tr>
+                        <td>
+                            <p><img src="https://openweathermap.org/img/w/{{ city.icon }}.png"></p>
+                            <p><b>{{ city.description.capitalize() }}</b></p>
+                            <p>Temperature: {{ city.temperature }}°C</p>
+                            <p>Pressure: {{ city.pressure }} hPa</p>
+                            <p>Wind speed: {{ city.wind }}km/h</p>
+                            <p>Humidity: {{ city.humidity }}%</p>                        
+                        </td>
+
+                        <td style="text-align: center;">
+                            <p><a style="text-decoration: none; color: yellow; border: 1px solid yellow;" href="/delete/{{ city.id }}">Delete</a></p>
+                            <br>
+                            <p><a style="text-decoration: none; color: yellow; border: 1px solid yellow;" href="/update/{{ city.id }}">Update</a></p>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                
+            {% endfor %}
+            </div>
+                
+        {% endif %}
+
+    </div>
+</body>
+</html>
