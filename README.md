@@ -1,9 +1,9 @@
 # WeatherTracker
 
- Welcome to my first, more complex programming project - WeatherTracker ☀️
+ Welcome to my first, programming project - WeatherTracker ☀️
 
 Why I started this project:
-I wanted to finally check my coding knowledge in practice and create an app using multiple technologies I have learned.
+I wanted to finally check my coding knowledge in practice and create an app using technologies I have learned.
 I came across this particular idea in the internet, but the whole code is writen by myself, without using any external tutorials.
 I will try too launch a website with this app in the neartest future, so you can test it via visiting URL.
 
